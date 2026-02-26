@@ -1,0 +1,16 @@
+[package]
+name = "app1"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+
+[profile.release]
+opt-level = 3        # Max optimizations (0-3)
+lto = true           # Link Time Optimization
+#lto = fat           # Link Time Optimization
+codegen-units = 1    # Slower compile but better optimizations
+strip = true         # Remove debug symbols (smaller binary)
+#embed-bitcode = yes
+#target-cpu = 'native'
+panic = 'abort'      # Abort on panic (smaller binary, no unwinding)
